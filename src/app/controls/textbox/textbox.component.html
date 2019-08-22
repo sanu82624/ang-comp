@@ -1,0 +1,43 @@
+<div class="input-group mb-3" [ngClass]="size" [hidden]="isHide">
+    <div class="input-group-prepend" *ngIf="label.length>0">
+        <span class="input-group-text">{{label}}</span>
+    </div>
+    
+    <input type="text" class="form-control custom" name="{{id}}" id="{{id}}" [(ngModel)]="data" 
+        [ngClass]="{'invalid-textbox':isValidInput() || isValidMinimumInput()}"
+        placeholder="{{placeholder}}" (ngModelChange)="onValueChange($event)" [readonly]="isReadOnly" 
+        [disabled]="isDisabled" [required]="isRequired" (click)="onTextboxClick($event)" 
+        (blur)="onTextboxBlur($event)" (focus)="onTextboxFocus($event)" autocomplete="off"
+        (keydown)="onTextboxKeydown($event)" (keyup)="onTextboxKeyup($event)" 
+        (keypress)="onTextboxKeypress($event)" (mousedown)="onTextboxMousedown($event)"
+        (mouseup)="onTextboxMouseup($event)" (mouseenter)="onTextboxMouseenter($event)"
+        (mouseleave)="onTextboxMouseleave($event)" (mouseover)="onTextboxMouseover($event)"
+        (dblclick)="onTextboxDblClick($event)" [maxlength]="maxLength" [minlength]="minLength" />
+
+    <div class="input-group-prepend" *ngIf="backLabel.length>0">
+        <span class="input-group-text">{{backLabel}}</span>
+    </div>
+    <div class="input-group-append" *ngIf="endSuccessBtnText.length>0">
+        <button [ngClass]="endSuccessBtnType" type="button" (click)="onEndSuccessBtnClick()">{{endSuccessBtnText}}</button> 
+    </div>
+    <div class="input-group-append" *ngIf="endFailBtnText.length>0">
+        <button [ngClass]="endFailBtnType" type="button" (click)="onEndFailBtnClick()">{{endFailBtnText}}</button> 
+    </div>
+    <div class="input-group-append" *ngIf="endSuccessBtnIcon.length>0">
+        <button [ngClass]="endSuccessBtnType" type="button" (click)="onEndSuccessBtnClick()">
+            <i [ngClass]="endSuccessBtnIcon"></i>
+        </button> 
+    </div>
+    <div class="input-group-append" *ngIf="endFailBtnIcon.length>0">
+        <button [ngClass]="endFailBtnType" type="button" (click)="onEndFailBtnClick()">
+            <i [ngClass]="endFailBtnIcon"></i>
+        </button> 
+    </div>
+
+    <div *ngIf="isValidInput()" class="invalid-text">
+        {{messageShow}}
+    </div>
+    <div *ngIf="isValidMinimumInput()" class="invalid-text">
+        Minimum lenght is {{minLength}}.
+    </div>
+</div>

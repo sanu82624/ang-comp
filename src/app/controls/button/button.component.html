@@ -1,0 +1,11 @@
+<button type="button" class="btn" [ngClass]="getButtonType()" [disabled]="isDisabled" 
+    *ngIf="category === getCategories().BUTTON" (click)="onBtnClick($event)">{{value}}</button>
+
+<input class="btn" type="button" [ngClass]="getButtonType()" [value]="value" [disabled]="isDisabled" 
+    *ngIf="category === getCategories().INPUT_BUTTON" (click)="onBtnClick($event)" />
+
+<input class="btn" type="submit" [ngClass]="getButtonType()" [value]="value" [disabled]="isDisabled" 
+    *ngIf="category === getCategories().INPUT_SUBMIT" (click)="onBtnClick($event)" />
+
+<input class="btn" type="reset" [ngClass]="getButtonType()" [value]="value" [disabled]="isDisabled" 
+    *ngIf="category === getCategories().INPUT_RESET" (click)="onBtnClick($event)" />

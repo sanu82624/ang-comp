@@ -1,0 +1,31 @@
+<div class="visible-div">
+    <app-color-picker colorCodeFormat="colorCodeFormat"
+        panelPosition="right"
+        [isOkButtonShow]="isOkButtonShow"
+        okButtonText="Ok"></app-color-picker>
+
+    <app-slider
+        minValue="0"
+        maxValue="100" (userChangeStarted)="onUserChangeStart($event)" [isFocusMinValue]="isFocusMinValue"></app-slider>
+
+    <form name="angForm" #f="ngForm" novalidate>
+        
+        <app-progress-bar [value]="pBarVal"></app-progress-bar>
+        <app-accordion></app-accordion>
+        <h3>Example heading <app-badge value="test"></app-badge></h3>
+        <app-textbox placeholder="{{placeholder}}" [(data)]="inputTextData" id="name2"
+            [isSubmit]="isSubmit" ></app-textbox>
+        <app-combobox placeholder="{{placeholder}}" [(data)]="inputTextData" id="name3"
+            [isSubmit]="isSubmit" ></app-combobox>
+        <button type="submit" value="sub" (click)="onSubmitClick()">Submit</button>
+        <app-button></app-button>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          Open modal
+        </button>
+        <app-modal modalId="myModal"></app-modal>
+        <br/><br/>
+        <app-checkbox></app-checkbox>
+    </form>
+</div>
+<app-notification></app-notification>

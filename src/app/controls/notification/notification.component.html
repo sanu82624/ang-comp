@@ -1,0 +1,6 @@
+<div class="alert" [ngClass]="[position, type]" *ngIf="!isAlertClose" [@fadeShowNotification]="appearanceState">
+    <button type="button" class="close" (click)="onCloseAlertClick($event)">
+        <i class="glyphicon glyphicon-remove"></i>
+    </button>
+    <div id="msg"></div>
+</div>

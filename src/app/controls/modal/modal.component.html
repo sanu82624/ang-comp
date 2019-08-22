@@ -1,0 +1,25 @@
+<div class="modal fade" id="{{modalId}}" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" [ngClass]="getClass()">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" [ngClass]="type" *ngIf="isHeaderShow">
+        <h4 class="modal-title" id="myModalLabel">{{heading}}</h4>
+        <button type="button" class="close" data-dismiss="modal" *ngIf="isCloseBtnShow" (click)="onCloseBtnClick($event)">&times;</button>
+      </div>  
+
+      <!-- Modal body -->
+      <div class="modal-body" innerHtml="{{body}}"></div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer" *ngIf="isFooterShow">
+        <button type="button" class="btn" [ngClass]="getLeftBtnClass()" *ngIf="isLeftBtnShow" 
+          data-dismiss="modal" (click)="onLeftBtnClick($event)">{{leftBtnText}}</button>
+        <button type="button" class="btn" [ngClass]="getMiddleBtnClass()" *ngIf="isMiddleBtnShow" 
+          data-dismiss="modal" (click)="onMiddleBtnClick($event)">{{middleBtnText}}</button>
+        <button type="button" class="btn" [ngClass]="getRightBtnClass()" *ngIf="isRightBtnShow" 
+          data-dismiss="modal" (click)="onRightBtnClick($event)">{{rightBtnText}}</button>
+      </div>
+    </div>
+  </div>
+</div>

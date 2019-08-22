@@ -1,0 +1,9 @@
+<div class="progress" [ngStyle]="{'height': height + 'px'}">
+    <div class="progress-bar" 
+        [ngClass]="getBarClass()" 
+        role="progressbar" 
+        [ngStyle]="{'width': value + '%'}" 
+        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <span [hidden]="!isLabelShow">{{value}}%</span>
+    </div>
+</div>

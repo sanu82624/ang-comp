@@ -1,0 +1,72 @@
+<div class="chk-div-main" *ngIf="isShowCategory(1)">
+    <input type="checkbox" name="{{ctrlId}}" id="{{ctrlId}}" autocomplete="off" />
+    <div class="chk-div-btn">
+        <label for="{{ctrlId}}" class="btn" [ngClass]="getBtnClass()">
+            <span class="glyphicon glyphicon-ok"></span>
+            <span></span>
+        </label>
+        <label for="{{ctrlId}}" class="btn" [ngClass]="getLabelClass()">
+            {{label}}
+        </label>
+    </div>
+</div>
+
+<label for="{{ctrlId}}" class="btn" [ngClass]="getLabelClass()" *ngIf="isShowCategory(2)">
+    {{label}} 
+    <input type="checkbox" id="{{ctrlId}}" name="{{ctrlId}}" class="badgebox" >
+    <span class="badge">&#10004;</span>
+</label>
+
+<div class="btn-group" data-toggle="buttons" *ngIf="isShowCategory(3)">
+    <label class="btn" [ngClass]="getBtnClass()">
+        <input type="checkbox" autocomplete="off" id="{{ctrlId}}" name="{{ctrlId}}" >
+        <span class="glyphicon glyphicon-ok"></span>
+    </label>
+    <label for="{{ctrlId}}" class="lbl-text" [ngClass]="getLabelClass()">
+        {{label}}
+    </label>
+</div>
+
+<div class="btn-group" *ngIf="isShowCategory(4)">
+    <label class="switch">
+        <input type="checkbox" [ngClass]="getBtnClass()" id="{{ctrlId}}" name="{{ctrlId}}">
+        <span class="slider round"></span>
+    </label>
+    <label for="{{ctrlId}}" class="lbl-text" [ngClass]="getLabelClass()">
+        {{label}}
+    </label>
+</div>
+
+<div class="btn-group" *ngIf="isShowCategory(5)">
+    <label class="switch">
+        <input type="checkbox" [ngClass]="getBtnClass()" id="{{ctrlId}}" name="{{ctrlId}}">
+        <span class="slider "></span>
+    </label>
+    <label for="{{ctrlId}}" class="lbl-text" [ngClass]="getLabelClass()">
+        {{label}}
+    </label>
+</div>
+
+<div class="btn-group" *ngIf="isShowCategory(6)">
+    <label>
+        <input type="checkbox" class="tick-cross-chk" id="{{ctrlId}}" name="{{ctrlId}}">
+        <span></span>
+    </label>
+    <label for="{{ctrlId}}" class="lbl-text">
+        {{label}}
+    </label>
+</div>
+
+<div class="chckbx" [ngClass]="getBtnClass()" *ngIf="isShowCategory(7)">
+    <input id="{{ctrlId}}" name="{{ctrlId}}" type="checkbox" checked="">
+    <label for="{{ctrlId}}">
+        {{label}}
+    </label>
+</div>
+
+<div class="chckbx chckbx-circle" [ngClass]="getBtnClass()" *ngIf="isShowCategory(8)">
+    <input id="{{ctrlId}}" name="{{ctrlId}}" type="checkbox" checked="">
+    <label for="{{ctrlId}}">
+        {{label}}
+    </label>
+</div>

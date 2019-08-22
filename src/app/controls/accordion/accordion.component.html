@@ -1,0 +1,13 @@
+<div class="parent-div">
+    <div class="child-div" *ngFor="let item of list; let i = index">
+        <div class="header-div pointer" (click)="onHeaderClick(i, item)" *ngIf="!isOnlyHeaderTextClick">
+            <span>{{item.header}}</span>
+        </div>
+        <div class="header-div" *ngIf="isOnlyHeaderTextClick">
+            <span class="pointer" (click)="onHeaderClick(i)">{{item.header}}</span>
+        </div>
+        <div class="content-div" [@changeContentSize]="item.status">
+            <div innerHtml="{{item.body}}"></div>
+        </div>
+    </div>
+</div>

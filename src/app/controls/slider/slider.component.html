@@ -1,0 +1,16 @@
+<div class="custom-slider">
+    <ng5-slider *ngIf="isRangeValue"
+        [(value)]="ngModel"
+        [(highValue)]="ngModelHigh"
+        [options]="options"
+        (userChangeStart)="onUserChangeStart($event)"
+        [triggerFocus]="triggerFocus" >
+    </ng5-slider>
+    <ng5-slider *ngIf="!isRangeValue"
+        [(value)]="ngModel"
+        [options]="options"
+        multiSelectionBarColors="getColors"
+        (userChangeStart)="onUserChangeStart($event)"
+        [triggerFocus]="triggerFocus" >
+    </ng5-slider>
+</div>

@@ -1,0 +1,40 @@
+<div>
+    <input [value] = "ngModel"
+         [style.background] = "backgroundColor"
+         [(colorPicker)] = "color"
+         [cpOutputFormat] = "colorCodeFormat"
+         [cpColorMode] = "colorMode"
+         
+         [cpToggle] = "isPanelDialogFixed"
+         [cpDialogDisplay] = "panelDialogType"
+         [cpPosition] = "panelPosition"
+         [cpWidth] = "panelWidth"
+         [cpHeight] = "panelHeight"
+
+         [cpOKButton] = "isOkButtonShow"
+         [cpOKButtonText] = "okButtonText"
+         [cpOKButtonClass] = "oKButtonClass"
+
+         [cpCancelButton] = "isCancelButtonShow"
+         [cpCancelButtonText] = "cancelButtonText"
+         [cpCancelButtonClass] = "cancelButtonClass"
+
+         [cpPresetColors] = "presetColors"
+         [cpPresetLabel] = "presetLabelText"
+         [cpMaxPresetColorsLength] = "maxPresetColorBtnNumber"
+         [cpAddColorButton] = "isAddPresetColorButtonShow"
+         [cpAddColorButtonText] = "addColorButtonText"
+         [cpAddColorButtonClass] = "addColorButtonClass"
+         [cpPresetEmptyMessage] = "emptyPresetColorMsg"
+         [cpRemoveColorButtonClass] = "removeColorButtonClass"
+
+         [cpAlphaChannel] = "alphaChannel"
+
+         (colorPickerChange) = "onColorPickerChange()"
+         (colorPickerSelect) = "onColorPickerOkClick($event)"
+         (cpToggleChange) = "onDialogOpenClose($event)"
+         (cpPresetColorsChange) = "onPresetColorsChange($event)"
+         (cpInputChange) = "onInputChange($event)"
+         (cpSliderChange) = "onSliderChange($event)"
+         />
+  </div>
