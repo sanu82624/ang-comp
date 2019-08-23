@@ -10,7 +10,8 @@ export class CheckboxComponent implements OnInit {
   @Input() ctrlId: string = "chkbx1";
   @Input() label: string = "Website";
   @Input() type: CheckboxTypes = CheckboxTypes.SUCCESS;
-  @Input() category: CheckboxCategories = CheckboxCategories.SIMPLE_ROUND_CHK;
+  @Input() category: CheckboxCategories = CheckboxCategories.CHK_TEXT;
+  @Input() isDisabled: boolean = true;
 
   constructor() { }
 

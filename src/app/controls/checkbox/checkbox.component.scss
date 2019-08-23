@@ -71,7 +71,6 @@ input[type="checkbox"]:focus + label::before{
 }
 .lbl-text{
     padding-left: 8px;
-    line-height: 35px;
     font-size: 1.5rem;
 }
 
@@ -213,6 +212,13 @@ input[type="checkbox"]:focus + label::before{
   height: 15px;
   right: 11px;
   top: 8px;
+}
+
+// - TICK_CROSS
+.lbl-text1{
+  padding-left: 8px;
+  line-height: 35px;
+  font-size: 1.5rem;
 }
 
 // - SIMPLE_CHK & SIMPLE_ROUND_CHK
