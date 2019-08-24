@@ -17,17 +17,7 @@
     <span class="badge">&#10004;</span>
 </label>
 
-<div class="btn-group" data-toggle="buttons" *ngIf="isShowCategory(3)">
-    <label class="btn" [ngClass]="getBtnClass()">
-        <input type="checkbox" autocomplete="off" id="{{ctrlId}}" name="{{ctrlId}}" [disabled]="isDisabled" >
-        <span class="glyphicon glyphicon-ok"></span>
-    </label>
-    <label for="{{ctrlId}}" class="lbl-text" [ngClass]="getLabelClass()">
-        {{label}}
-    </label>
-</div>
-
-<div class="btn-group" *ngIf="isShowCategory(4)">
+<div class="btn-group" *ngIf="isShowCategory(3)">
     <label class="switch">
         <input type="checkbox" [ngClass]="getBtnClass()" id="{{ctrlId}}" name="{{ctrlId}}" [disabled]="isDisabled">
         <span class="slider round"></span>
@@ -37,7 +27,7 @@
     </label>
 </div>
 
-<div class="btn-group" *ngIf="isShowCategory(5)">
+<div class="btn-group" *ngIf="isShowCategory(4)">
     <label class="switch">
         <input type="checkbox" [ngClass]="getBtnClass()" id="{{ctrlId}}" name="{{ctrlId}}" [disabled]="isDisabled">
         <span class="slider "></span>
@@ -47,7 +37,7 @@
     </label>
 </div>
 
-<div class="btn-group" *ngIf="isShowCategory(6)">
+<div class="btn-group" *ngIf="isShowCategory(5)">
     <label>
         <input type="checkbox" class="tick-cross-chk" id="{{ctrlId}}" name="{{ctrlId}}" [disabled]="isDisabled">
         <span></span>
@@ -57,14 +47,14 @@
     </label>
 </div>
 
-<div class="chckbx" [ngClass]="getBtnClass()" *ngIf="isShowCategory(7)">
+<div class="chckbx" [ngClass]="getBtnClass()" *ngIf="isShowCategory(6)">
     <input id="{{ctrlId}}" name="{{ctrlId}}" type="checkbox" [disabled]="isDisabled" >
     <label for="{{ctrlId}}">
         {{label}}
     </label>
 </div>
 
-<div class="chckbx chckbx-circle" [ngClass]="getBtnClass()" *ngIf="isShowCategory(8)">
+<div class="chckbx chckbx-circle" [ngClass]="getBtnClass()" *ngIf="isShowCategory(7)">
     <input id="{{ctrlId}}" name="{{ctrlId}}" type="checkbox" [disabled]="isDisabled">
     <label for="{{ctrlId}}">
         {{label}}

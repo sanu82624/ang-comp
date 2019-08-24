@@ -62,18 +62,6 @@ input[type="checkbox"]:focus + label::before{
     padding-top: 0px;
 }
 
-// - CHK_TEXT
-.chk-text-btn span.glyphicon {    			
-	opacity: 0;				
-}
-.chk-text-btn.active span.glyphicon {				
-	opacity: 1;				
-}
-.lbl-text{
-    padding-left: 8px;
-    font-size: 1.5rem;
-}
-
 // - ROUND_TOGGLE_TEXT
 .switch {
     position: relative;

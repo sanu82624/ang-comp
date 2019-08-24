@@ -22,9 +22,12 @@ import { AccordionComponent } from './controls/accordion/accordion.component';
 import { ButtonComponent } from './controls/button/button.component';
 import { ModalComponent } from './controls/modal/modal.component';
 import { CheckboxComponent } from './controls/checkbox/checkbox.component';
+import { LoginComponent } from './components/login/login.component';
+import { TextareaComponent } from './controls/textarea/textarea.component';
 
 const routes: Routes = [
-  { path: '', component: ShowControlsComponent, data: { title: 'Show-component' } }
+  { path: '', component: ShowControlsComponent, data: { title: 'Show-component' } },
+  { path: 'login', component: LoginComponent, data: { title: 'Login-component' } }
 ];
 
 @NgModule({
@@ -41,7 +44,9 @@ const routes: Routes = [
     AccordionComponent,
     ButtonComponent,
     ModalComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    LoginComponent,
+    TextareaComponent
   ],
   imports: [
     BrowserModule,

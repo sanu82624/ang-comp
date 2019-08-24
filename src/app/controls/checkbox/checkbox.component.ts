@@ -10,7 +10,7 @@ export class CheckboxComponent implements OnInit {
   @Input() ctrlId: string = "chkbx1";
   @Input() label: string = "Website";
   @Input() type: CheckboxTypes = CheckboxTypes.SUCCESS;
-  @Input() category: CheckboxCategories = CheckboxCategories.CHK_TEXT;
+  @Input() category: CheckboxCategories = CheckboxCategories.SIMPLE_CHK;
   @Input() isDisabled: boolean = true;
 
   constructor() { }
@@ -19,9 +19,7 @@ export class CheckboxComponent implements OnInit {
   }
 
   getBtnClass(){
-    if(this.category === CheckboxCategories.CHK_TEXT){
-      return "btn-" + this.type + " active rounded-0 chk-text-btn";
-    } else if(this.category === CheckboxCategories.ROUND_TOGGLE_TEXT || this.category === CheckboxCategories.TOGGLE_TEXT){
+    if(this.category === CheckboxCategories.ROUND_TOGGLE_TEXT || this.category === CheckboxCategories.TOGGLE_TEXT){
       return this.type;
     } else if(this.category === CheckboxCategories.SIMPLE_CHK || this.category === CheckboxCategories.SIMPLE_ROUND_CHK){
       return "chckbx-" + this.type;
@@ -32,8 +30,6 @@ export class CheckboxComponent implements OnInit {
   getLabelClass(){
     if(this.category === CheckboxCategories.BUTTON){
       return "btn-" + this.type + " chk-btn-label";
-    } else if(this.category === CheckboxCategories.CHK_TEXT){
-      return "text-" + this.type;
     } else if(this.category === CheckboxCategories.ROUND_TOGGLE_TEXT || this.category === CheckboxCategories.TOGGLE_TEXT){
       return "text-" + this.type;
     }
@@ -57,10 +53,9 @@ export enum CheckboxTypes {
 export enum CheckboxCategories {
   TWO_BOX = 1,
   BUTTON = 2,
-  CHK_TEXT = 3,
-  ROUND_TOGGLE_TEXT = 4,
-  TOGGLE_TEXT = 5,
-  TICK_CROSS = 6,
-  SIMPLE_CHK = 7,
-  SIMPLE_ROUND_CHK = 8
+  ROUND_TOGGLE_TEXT = 3,
+  TOGGLE_TEXT = 4,
+  TICK_CROSS = 5,
+  SIMPLE_CHK = 6,
+  SIMPLE_ROUND_CHK = 7
 }
