@@ -3,7 +3,7 @@
         <span class="input-group-text">{{label}}</span>
     </div>
     
-    <textarea class="form-control custom" name="{{id}}" id="{{id}}" [(ngModel)]="data" 
+    <textarea class="form-control" name="{{id}}" id="{{id}}" [(ngModel)]="data" 
         [ngClass]="{'invalid-textbox':isValidInput() || isValidMinimumInput(), 'resize': !isResizable}" rows="5"
         placeholder="{{placeholder}}" (ngModelChange)="onValueChange($event)" [readonly]="isReadOnly" 
         [disabled]="isDisabled" [required]="isRequired" (click)="onTextboxClick($event)" 

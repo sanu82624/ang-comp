@@ -10,7 +10,7 @@ export class TextareaComponent implements OnInit {
   @Input() id: string = "txtArea1";
   @Input() label: string = "Website";
   @Input() backLabel: string = "";
-  @Input() placeholder: string = "";
+  @Input() placeholder: string = "Nice text";
   @Input() isResizable: boolean = false;
   @Input() size: Sizes = Sizes.Normal;
   @Input() endSuccessBtnText: string = "";
