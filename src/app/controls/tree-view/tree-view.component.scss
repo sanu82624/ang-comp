@@ -1,0 +1,30 @@
+
+.tv-container{
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+
+.tv-node{
+    width: auto;
+    line-height: 25px;
+}
+
+.tv-node-text{
+    font-size: 14px;
+    padding-left: 5px;
+    font-weight: normal;
+}
+
+.tv-chld-div{
+    padding-left: 20px;
+    margin: 3px 0;
+}
+
+.white-icon {
+    color: white !important;
+}
+
+.pointer{
+    cursor: pointer;
+}
