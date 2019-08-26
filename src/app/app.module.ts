@@ -24,6 +24,8 @@ import { ModalComponent } from './controls/modal/modal.component';
 import { CheckboxComponent } from './controls/checkbox/checkbox.component';
 import { LoginComponent } from './components/login/login.component';
 import { TextareaComponent } from './controls/textarea/textarea.component';
+import { PopoverComponent } from './controls/popover/popover.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 const routes: Routes = [
   { path: '', component: ShowControlsComponent, data: { title: 'Show-component' } },
@@ -46,7 +48,8 @@ const routes: Routes = [
     ModalComponent,
     CheckboxComponent,
     LoginComponent,
-    TextareaComponent
+    TextareaComponent,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     ColorPickerModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
