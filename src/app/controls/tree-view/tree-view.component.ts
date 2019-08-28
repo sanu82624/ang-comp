@@ -7,12 +7,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TreeViewComponent implements OnInit {
 
-  @Input() nodes: any = [{ id: 1, name: "root val", isExpanded: false, children: [{id:2, name:"child 1", isSelected: false},{id:3, name:"child 2", isSelected: false}]},
-    { id: 4, name: "root val1", isExpanded: false, children: [{id:5, name:"child 3", isSelected: false},{id:6, name:"child 4", isSelected: false}]},
+  @Input() nodes: any = [{ id: 1, name: "root val", isExpanded: true, children: [{id:2, name:"child 1", isSelected: false},{id:3, name:"child 2", isSelected: false}]},
+    { id: 4, name: "root val1", isExpanded: false, children: [{id:5, name:"child 3", isSelected: false},{id:6, name:"child 4", isSelected: false}], actionBtnText: "New"},
     { id: 8, name: "root val1", isExpanded: false, children: [], isSelected: false},
     { id: 9, name: "root val1", isExpanded: false, children: [{id:59, name:"child 3", isSelected: false},{id:96, name:"child 4", isSelected: false}]}];
+  @Input() isMultiSelection: boolean = true;
 
   @Output() nodeClick: EventEmitter<object> = new EventEmitter<object>();
+  @Output() nodeActionClick: EventEmitter<object> = new EventEmitter<object>();
+
   constructor() { }
 
   ngOnInit() {
@@ -38,8 +41,10 @@ export class TreeViewComponent implements OnInit {
     if(node.children !== undefined && node.children.length>0){
       node.isExpanded = !node.isExpanded;
     }else{
-      this.setNoSelection();
-      node.isSelected = true;
+      if(!this.isMultiSelection){
+        this.setNoSelection();
+      }
+      node.isSelected = !node.isSelected;
     }
     this.nodeClick.emit({
       node: node,
@@ -55,5 +60,12 @@ export class TreeViewComponent implements OnInit {
       return "glyphicon glyphicon-menu-down";
     }
     return "glyphicon glyphicon-menu-right";
+  }
+
+  onActionBtnClick(node: any, event: any){
+    this.nodeActionClick.emit({
+      node: node,
+      event: event
+    });
   }
 }

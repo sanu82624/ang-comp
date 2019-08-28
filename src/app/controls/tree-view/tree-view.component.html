@@ -2,10 +2,12 @@
     <div class="tv-node" *ngFor="let node of nodes">
         <span [ngClass]="getArrowClass(node)" class="pointer" (click)="onNodeClick(node, $event)"></span>
         <span class="tv-node-text pointer" [ngClass]="{'label label-primary': node.isSelected}" (click)="onNodeClick(node, $event)">{{node.name}}</span>
+        <span *ngIf="node.actionBtnText" class="action-btn-text pointer" (click)="onActionBtnClick(node, $event)">{{node.actionBtnText}}</span>
         <div *ngIf="node.children.length > 0" [hidden]="!node.isExpanded">
             <div class="tv-node tv-chld-div" *ngFor="let chld of node.children">
                 <span [ngClass]="getArrowClass(chld)" class="pointer"></span>
                 <span class="tv-node-text pointer" [ngClass]="{'label label-primary': chld.isSelected}" (click)="onNodeClick(chld, $event)">{{chld.name}}</span>
+                <span *ngIf="chld.actionBtnText" class="action-btn-text pointer" (click)="onActionBtnClick(chld, $event)">{{node.actionBtnText}}</span>
                 <div *ngIf="chld.children !== undefined && chld.children.length > 0" [hidden]="!chld.isExpanded">
                     <div class="tv-node tv-chld-div" *ngFor="let gChld of chld.children">
                         <span [ngClass]="getArrowClass(gChld)" class="pointer"></span>

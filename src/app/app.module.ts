@@ -27,6 +27,7 @@ import { TextareaComponent } from './controls/textarea/textarea.component';
 import { PopoverComponent } from './controls/popover/popover.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TreeViewComponent } from './controls/tree-view/tree-view.component';
+import { LoaderComponent } from './controls/loader/loader.component';
 
 const routes: Routes = [
   { path: '', component: ShowControlsComponent, data: { title: 'Show-component' } },
@@ -51,7 +52,8 @@ const routes: Routes = [
     LoginComponent,
     TextareaComponent,
     PopoverComponent,
-    TreeViewComponent
+    TreeViewComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
