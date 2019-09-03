@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class ExpressionValidtorComponent implements OnInit {
 
   data: string = "";
-  expression: Array<string> = ["@c~##[==|<|>|<>|<=|>=]~@v", "@c~!![*|+|-|/]~@v", "@c~!![*|+|-|/]~@c", "@c~#![IN|NOT IN]~@[v]"];
-  tableList: Array<Table> = [{name: "tbl1", columns: [{name:"col1",typ: ColumnTypes.TEXT}, {name:"col2",typ: ColumnTypes.NUMBER}, {name:"col3",typ: ColumnTypes.TEXT}]}];
+  expression: Array<string> = ["@c~##[==|<|>|<>|<=|>=]~@v", "@c~!![*|+|-|/]~@v", "@c~!![*|+|-|/]~@c", "@c~#![IN|NOT IN]~@[v]", "@t~#@[,]~@t"];
+  tableList: Array<Table> = [{name: "tbl1", columns: [{name:"col1",typ: ColumnTypes.TEXT}, {name:"col2",typ: ColumnTypes.NUMBER}, {name:"col3",typ: ColumnTypes.TEXT}]},
+                              {name: "tbl2", columns: []}];
   isValid: boolean = false;
   
   constructor() { }
 
   currentColumn: Column;
+  currentTable: Table;
   tableName: string = "tbl1";
   startNameChar: string = "{";
   endNameChar: string = "}";
@@ -41,6 +43,22 @@ export class ExpressionValidtorComponent implements OnInit {
     for(var index=0; index<this.getColumnListByTableName(this.tableName).length; index++){
       if(this.getColumnListByTableName(this.tableName)[index].name === name){
         this.currentColumn = this.getColumnListByTableName(this.tableName)[index];
+        return true;
+      }
+    }
+    return false;
+  }
+
+  checkTable(name: string): boolean{
+    if(name.indexOf(this.startNameChar) === 0){
+      name = name.substr(1);
+    }
+    if(name.lastIndexOf(this.endNameChar)){
+      name = name.substring(0, name.length-1);
+    }
+    for(var index=0; index<this.tableList.length; index++){
+      if(this.tableList[index].name === name){
+        this.currentTable = this.tableList[index];
         return true;
       }
     }
@@ -74,7 +92,14 @@ export class ExpressionValidtorComponent implements OnInit {
 
       //table check
       if(expParts[inPrt] === "@t"){
-        
+        if(value.indexOf(this.startNameChar) > 0 || value.indexOf(this.endNameChar) === -1 || value.indexOf(this.startNameChar) > value.indexOf(this.endNameChar)){
+          return false;
+        }
+        var tblName = value.substr(value.indexOf(this.startNameChar), (value.indexOf(this.endNameChar) - value.indexOf(this.startNameChar)+1));
+        if(!this.checkTable(tblName)){
+          return false;
+        }
+        value = value.substr(tblName.length).trim();
       }
 
       //[==|<|>|<>|<=|>=] check
@@ -98,6 +123,24 @@ export class ExpressionValidtorComponent implements OnInit {
       //[*|+|-|/] check
       if(expParts[inPrt].indexOf("!![") === 0){
         expParts[inPrt] = expParts[inPrt].replace("!![", "").replace("]", "");
+        var operands = expParts[inPrt].split("|");
+        var selectedOperand = "";
+        for(var inOpd=0; inOpd<operands.length; inOpd++){
+          if(value.indexOf(operands[inOpd]) === 0){
+            selectedOperand = operands[inOpd];
+            break;
+          }
+        }
+        if(selectedOperand.length === 0){
+          return false;
+        }else{
+          value = value.substr(selectedOperand.length).trim();
+        }
+      }
+
+      //[,] check
+      if(expParts[inPrt].indexOf("#@[") === 0){
+        expParts[inPrt] = expParts[inPrt].replace("#@[", "").replace("]", "");
         var operands = expParts[inPrt].split("|");
         var selectedOperand = "";
         for(var inOpd=0; inOpd<operands.length; inOpd++){
