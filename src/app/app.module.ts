@@ -13,6 +13,8 @@ import { SliderComponent } from './controls/slider/slider.component';
 
 import { ColorPickerModule } from 'ngx-color-picker';
 import { Ng5SliderModule } from 'ng5-slider';
+// import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, POSITION,
+//   PB_DIRECTION, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { TextboxComponent } from './controls/textbox/textbox.component';
 import { ComboboxComponent } from './controls/combobox/combobox.component';
 import { NotificationComponent } from './controls/notification/notification.component';
@@ -28,10 +30,12 @@ import { PopoverComponent } from './controls/popover/popover.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TreeViewComponent } from './controls/tree-view/tree-view.component';
 import { LoaderComponent } from './controls/loader/loader.component';
+import { ExpressionValidtorComponent } from './components/expression-validtor/expression-validtor.component';
 
 const routes: Routes = [
   { path: '', component: ShowControlsComponent, data: { title: 'Show-component' } },
-  { path: 'login', component: LoginComponent, data: { title: 'Login-component' } }
+  { path: 'login', component: LoginComponent, data: { title: 'Login-component' } },
+  { path: 'exp', component: ExpressionValidtorComponent, data: { title: 'app-expression-validtor' } }
 ];
 
 @NgModule({
@@ -53,7 +57,9 @@ const routes: Routes = [
     TextareaComponent,
     PopoverComponent,
     TreeViewComponent,
-    LoaderComponent
+    LoaderComponent,
+    ExpressionValidtorComponent,
+    // NgxUiLoaderModule, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule
   ],
   imports: [
     BrowserModule,
