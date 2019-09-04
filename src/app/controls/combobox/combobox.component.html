@@ -2,12 +2,19 @@
     <div class="input-group-prepend" *ngIf="label.length>0">
         <span class="input-group-text">{{label}}</span>
     </div>
-    
-    <input type="text" class="form-control custom" name="{{id}}" id="{{id}}" [(ngModel)]="data" 
+    <select class="form-control custom" name="{{id}}" id="{{id}}" [(ngModel)]="data" [disabled]="isDisabled"  >
+        <option>PHP</option>
+        <option>CSS</option>
+        <option>HTML</option>
+        <option>CSS 3</option>
+        <option>Bootstrap</option>
+        <option>JavaScript</option>
+      </select>
+    <!-- <input type="text" class="form-control custom" name="{{id}}" id="{{id}}" [(ngModel)]="data" 
         placeholder="{{placeholder}}" autocomplete="off" [disabled]="isDisabled" [readonly]="isReadOnly" />
     <button class="btn btn-down-arrow" type="button" (click)="onDownBtnClick()" [disabled]="isDisabled" id="btnDownArrow">
         <i class="glyphicon" [ngClass]="getDownListIcon()"></i>
-    </button> 
+    </button>  -->
 
     <div class="input-group-prepend" *ngIf="backLabel.length>0">
         <span class="input-group-text">{{backLabel}}</span>
@@ -28,5 +35,4 @@
             <i [ngClass]="endFailBtnIcon"></i>
         </button> 
     </div>
-    <div class="down-list" id="divList" [@changeDivSize]="{value: downListState, params: {listHeight: downListHeight}}"></div>
 </div>

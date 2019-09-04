@@ -1,11 +1,9 @@
 import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
-import { Animations } from './animations';
 
 @Component({
   selector: 'app-combobox',
   templateUrl: './combobox.component.html',
-  styleUrls: ['./combobox.component.scss'],
-  animations: [Animations]
+  styleUrls: ['./combobox.component.scss']
 })
 export class ComboboxComponent implements OnInit, AfterViewInit  {
 
@@ -23,7 +21,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit  {
   @Input() endFailBtnType: ButtonTypes = ButtonTypes.Danger;
   @Input() data: string = ""; // bind with ngModel two way
   @Input() isHide: boolean = false;
-  @Input() isReadOnly: boolean = false;
   @Input() isDisabled: boolean = false;
   @Input() isRequired: boolean = true;
   @Input() isSubmit: boolean = false;
@@ -44,18 +41,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit  {
   }
 
   ngAfterViewInit(){
-    document.getElementById('divList').style.width = (document.getElementById(this.id).children[0].getElementsByTagName("input")[0].offsetWidth - 1) + 'px';
-    document.getElementById('divList').style.marginLeft = (document.getElementById(this.id).children[0].getElementsByTagName("div")[0].offsetWidth - 1) + 'px';
-    document.getElementById('btnDownArrow').style.left = ((document.getElementById(this.id).children[0].getElementsByTagName("input")[0].offsetWidth) + 
-      (document.getElementById(this.id).children[0].getElementsByTagName("div")[0].offsetWidth) - 27) + 'px';
-  }
-
-  getDownListIcon(){
-    return ((this.downListState === "final") ? "glyphicon-menu-up" : "glyphicon-menu-down");
-  }
-
-  onDownBtnClick(){
-    this.downListState = this.downListState === 'initial' ? 'final' : 'initial';
+    
   }
 
 }
